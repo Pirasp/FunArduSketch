@@ -39,19 +39,21 @@ void setup() {
 void loop() {
 
   //maybe I will finish this more physically accurate part some time, but the hack below already looks quite good :D
-  nowTime = millis();
+ /* nowTime = millis();
   unsigned long t = nowTime - lastTime;
   if (t >= updateFreqMillis){//at least ten milliseconds have passed since last update
     
-  }
+  }*/
 
 //hacky and not physically accurate, but looks nice enough
 int L1, L2, L3;
 L1 = random(100) ;
 L2 = random(100) ;
 L3 = random(100) ;
+L4 = random(100);
 analogWrite(flame1, 255 - L1);
 analogWrite(flame2, 255 - L2);
 analogWrite(flame3, 255 - L3);
+analogWrite(flame4, 255-L4);
 delay(80 + random(80));
 }
