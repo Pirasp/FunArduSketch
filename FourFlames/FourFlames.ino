@@ -22,7 +22,7 @@ int updateFreqMillis = 10;
 unsigned long lastTime = 0;
 unsigned long nowTime = 0;
 
-float step
+float stepSize;
 
 // the setup routine runs once when you press reset:
 void setup() {
@@ -37,9 +37,21 @@ void setup() {
 
 // the loop routine runs over and over again forever:
 void loop() {
+
+  //maybe I will finish this more physically accurate part some time, but the hack below already looks quite good :D
   nowTime = millis();
   unsigned long t = nowTime - lastTime;
   if (t >= updateFreqMillis){//at least ten milliseconds have passed since last update
     
   }
+
+//hacky and not physically accurate, but looks nice enough
+int L1, L2, L3;
+L1 = random(100) ;
+L2 = random(100) ;
+L3 = random(100) ;
+analogWrite(flame1, 255 - L1);
+analogWrite(flame2, 255 - L2);
+analogWrite(flame3, 255 - L3);
+delay(80 + random(80));
 }
