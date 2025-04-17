@@ -12,6 +12,8 @@ double convertRawToTemperature(int raw)
  return temperatureInC;
 }
 
+double target = 250;
+double hysteresis = 25;
 
 void setup() 
 {
@@ -30,10 +32,10 @@ void loop()
   
 
   Serial.println(temperaturInC);   
-  if (temperaturInC < 27)  {
+  if (temperaturInC < target-hysteresis)  {
     digitalWrite(7, HIGH);
   }
-  if (temperaturInC > 35)  {
+  if (temperaturInC > target)  {
     digitalWrite(7, LOW);
   }
     
